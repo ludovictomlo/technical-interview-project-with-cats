@@ -1,0 +1,11 @@
+<i
+	*ngIf="name && !src"
+	[class]="iconClass"
+	[style.color]="color"
+></i>
+<img
+	*ngIf="!name && src"
+	[src]="iconSrc"
+	[class]="iconClass"
+	[style.color]="color"
+/>

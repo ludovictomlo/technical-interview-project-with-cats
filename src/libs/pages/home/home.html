@@ -1,0 +1,77 @@
+<div
+	class="page-container"
+	infiniteScroll
+	[infiniteScrollDistance]="2"
+	[infiniteScrollThrottle]="100"
+	[infiniteScrollContainer]="'.page'"
+	[infiniteScrollDisabled]="disableInfiniteScroll"
+	[fromRoot]="true"
+	[scrollWindow]="false"
+	(scrolled)="onScroll()"
+>
+	<div class="section-search">
+		<form
+			class="input-field"
+			[formGroup]="searchForm"
+			*ngIf="searchForm"
+		>
+			<div class="fields-top">
+				<div class="fields-top-query">
+					<mat-form-field appearance="fill">
+						<mat-label>Search</mat-label>
+						<input matInput placeholder="Ex. Lorem ipsum" formControlName="query">
+					</mat-form-field>
+				</div>
+				<div class="fields-top-coat-type">
+					<mat-form-field appearance="fill">
+						<mat-label>Coat type</mat-label>
+						<mat-select formControlName="coatType">
+							<mat-option>All types</mat-option>
+							<ng-container *ngFor="let type of catsList?.aggregations?.coatTypes">
+								<mat-option [value]="type">{{type}}</mat-option>
+							</ng-container>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="fields-bottom">
+				<div class="fields-bottom-price">
+					<mat-slider
+						[min]="priceMin"
+						[max]="priceMax"
+						showTickMarks
+						discrete
+						[displayWith]="formatPriceLabel"
+					>
+						<input
+							matSliderStartThumb
+							formControlName="priceMin"
+							[value]="searchForm.get('priceMin')?.value"
+						>
+						<input
+							matSliderEndThumb
+							formControlName="priceMax"
+							[value]="searchForm.get('priceMax')?.value"
+						>
+					</mat-slider>
+				</div>
+
+				<div class="fields-bottom-sorting">
+					<mat-form-field appearance="fill">
+						<mat-label>Sort</mat-label>
+						<mat-select formControlName="sorting">
+							<ng-container *ngFor="let sorting of catsList?.aggregations?.sortings">
+								<mat-option [value]="sorting.value">{{sorting.key}}</mat-option>
+							</ng-container>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="section-listing">
+		<ng-container *ngFor="let item of catsList?.elements">
+			<ip-cat-card [item]="item"></ip-cat-card>
+		</ng-container>
+	</div>
+</div>

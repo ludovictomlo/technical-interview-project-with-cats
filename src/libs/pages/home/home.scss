@@ -1,0 +1,98 @@
+@use '/src/theme/mixins.scss' as mix;
+
+:host {
+	.page-container {
+		.section {
+			&-search {
+				width: 100%;
+				max-width: 800px;
+				margin-bottom: 30px;
+
+				form {
+					display: flex;
+					flex-flow: column;
+
+					.fields {
+						&-top {
+							display: flex;
+							flex-flow: row;
+							@include mix.forPhoneOnly {
+								flex-flow: column;
+							}
+
+							&-query {
+								display: flex;
+								flex: 1 auto;
+
+								mat-form-field {
+									width: 100%;
+								}
+							}
+							&-coat-type {
+								@include mix.forPhoneOnly {
+									width: 100%;
+
+									mat-form-field {
+										width: 100%;
+									}
+								}
+							}
+						}
+						&-bottom {
+							display: flex;
+							flex-flow: row;
+							justify-content: space-between;
+							align-items: center;
+							@include mix.forPhoneOnly {
+								flex-flow: column;
+							}
+
+							&-price {
+								display: flex;
+								flex: 1 auto;
+								padding: 0.75em 0.75em 0 0.75em;
+								@include mix.forPhoneOnly {
+									width: 100%;
+								}
+
+								mat-slider {
+									width: 100%;
+								}
+							}
+							&-sorting {
+								@include mix.forPhoneOnly {
+									width: 100%;
+
+									mat-form-field {
+										width: 100%;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			&-listing {
+				display: flex;
+				flex-flow: row;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				max-width: 800px;
+				@include mix.forBigDesktopUp {
+					max-width: 1400px;
+				}
+
+				ip-cat-card {
+					margin-bottom: 30px;
+
+					@include mix.forTabletPortraitUp {
+						max-width: calc(50% - 30px);
+					}
+					@include mix.forBigDesktopUp {
+						max-width: calc(33% - 60px);
+					}
+				}
+			}
+		}
+	}
+}

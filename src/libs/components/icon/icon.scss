@@ -1,0 +1,16 @@
+:host {
+	--icon-size: 25px;
+    display: block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+
+	i {
+		font-size: var(--icon-size);
+	}
+	img {
+		object-fit: cover;
+		object-position: center;
+		height: var(--icon-height, var(--icon-size));
+		width: var(--icon-width, var(--icon-size));
+	}
+}

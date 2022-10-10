@@ -1,0 +1,46 @@
+@use '/src/theme/mixins.scss' as mix;
+
+:host {
+    display: flex;
+    position: sticky;
+    padding: 10px;
+	background-color: var(--color-primary);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+	z-index: 2;
+
+	.app-header {
+		@include mix.flexFillWidth;
+		max-width: 100%;
+
+		&-logo {
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+
+			ip-icon {
+				--icon-size: 50px;
+				cursor: pointer;
+				transition: all linear 0.3s;
+				transform: rotate(0deg);
+
+				&:hover {
+					transform: rotate(360deg);
+				}
+			}
+		}
+		&-title {
+			@include mix.flexFillWidth;
+			margin-left: 15px;
+			align-items: center;
+			max-width: calc(100% - 65px);
+
+			span {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: var(--color-primary-contrast);
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+@use '/src/theme/mixins.scss' as mix;
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+html, body {
+	height: 100%;
+    width: 100%;
+	margin: 0;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: var(--font-size-base);
+	color: var(--primary-text-color);
+    overflow: hidden;
+}
+
+ip-root {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+
+	.page {
+		@include mix.flexFillHeight;
+		overflow: auto;
+
+		&-container {
+			@include mix.flexFillHeight;
+			padding: 30px;
+			max-width: 100%;
+			align-items: center;
+
+			@include mix.forPhoneOnly {}
+		}
+	}
+}
+
+// Angular Material overrides start
+.mat-select-panel {
+	background: #fff;
+}
+
+mat-slider-visual-thumb, .mdc-slider__track--active {
+	color: var(--color-primary);
+}
+
+.mdc-slider__track--inactive {
+	background-color: #e7e7e7;
+}
+
+.mdc-slider .mdc-slider__value-indicator-container {
+	bottom: 36px !important;
+}
+
+.mdc-slider__value-indicator-text {
+	color: #fff;
+}
+
+.mdc-slider .mdc-slider__value-indicator::after,
+.mdc-slider .mdc-slider__value-indicator::before {
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none !important;
+}
+
+.fields-top {
+	&-query .mat-form-field-appearance-fill .mat-form-field-flex {
+		background-color: #e7e7e7;
+		border-radius: 4px;
+	}
+}
+.fields-bottom {
+	&-sorting .mat-form-field-wrapper {
+		padding-bottom: 0;
+	}
+}
+
+mat-progress-bar {
+    z-index: 3;
+	min-height: 4px;
+
+	.mat-progress-bar-buffer {
+		background-color: var(--color-primary);
+	}
+	.mat-progress-bar-fill:after {
+		background-color: var(--color-secondary);
+	}
+
+	.mat-progress-bar-secondary:after {
+		background-color: var(--color-secondary);
+	}
+}
+// Angular Material overrides end

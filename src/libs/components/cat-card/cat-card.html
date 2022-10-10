@@ -1,0 +1,11 @@
+<mat-card>
+	<div class="thumbnail">
+		<img mat-card-image [src]="item | thumbnail">
+		<span>{{ item.price | price: 'USD' }}</span>
+	</div>
+	<mat-card-title>{{ item.name }}</mat-card-title>
+	<mat-card-subtitle>Coat type: {{ item.coatType }}</mat-card-subtitle>
+	<mat-card-content>
+		<p>{{ item.description }}</p>
+	</mat-card-content>
+</mat-card>

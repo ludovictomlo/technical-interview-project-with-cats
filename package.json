@@ -1,0 +1,45 @@
+{
+  "name": "interview-project",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~14.2.4",
+    "@angular/common": "~14.2.4",
+    "@angular/compiler": "~14.2.4",
+    "@angular/core": "~14.2.4",
+    "@angular/forms": "~14.2.4",
+    "@angular/material": "~14.2.4",
+    "@angular/material-experimental": "~14.2.4",
+    "@angular/platform-browser": "~14.2.4",
+    "@angular/platform-browser-dynamic": "~14.2.4",
+    "@angular/router": "~14.2.4",
+    "ngx-infinite-scroll": "^14.0.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.1",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~14.2.4",
+    "@angular/cli": "~14.2.4",
+    "@angular/compiler-cli": "~14.2.4",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0",
+    "typescript": "~4.6.2"
+  },
+  "engine": {
+	"node": ">=16.0.0",
+	"npm": ">=8.0.0"
+  }
+}

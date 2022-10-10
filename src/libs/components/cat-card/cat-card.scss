@@ -1,0 +1,41 @@
+@use '/src/theme/mixins.scss' as mix;
+
+:host {
+	.mat-card {
+		box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+
+		.thumbnail {
+			position: relative;
+
+			img {
+				height: 450px;
+				object-fit: cover;
+				object-position: cover;
+
+				@include mix.forPhoneOnly {
+					height: 350px;
+				}
+			}
+			span {
+				position: absolute;
+				bottom: 0;
+				right: -16px;
+				padding: 2px 6px;
+				font-size: 1.3rem;
+				z-index: 1;
+				color: #fff;
+				background-color: rgba(0, 0, 0, 0.5);
+				border-top-left-radius: 8px;
+			}
+		}
+		&-content {
+			p {
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

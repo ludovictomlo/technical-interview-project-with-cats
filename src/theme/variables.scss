@@ -1,0 +1,22 @@
+body {
+	/** Color variables **/
+	--color-primary: #33691e;
+	--color-primary-tint: #629749;
+	--color-primary-shade: #003d00;
+	--color-primary-contrast: #fff;
+
+	--color-secondary: #ffab00;
+	--color-secondary-tint: #ffdd4b;
+	--color-secondary-shade: #c67c00;
+	--color-secondary-contrast: #000;
+
+	--color-info: #255ea3;
+	--color-success: #5aba5e;
+	--color-warning: #ffa219;
+	--color-danger: #ff5346;
+
+	/** Font variables **/
+	--font-size-base: 14px;
+	--font-family: 'Roboto', sans-serif;
+	--primary-text-color: #333;
+}
